@@ -1,6 +1,7 @@
 import { useDelayedAnimation } from '../hooks/useDelayedAnimation'
-import AnimatedName from './AnimatedName'
-import HeroTitle from './HeroTitle'
+import AnimatedName from './ui/AnimatedName'
+import HeroTitle from './ui/HeroTitle'
+import ScrollIndicator from './ui/ScrollIndicator'
 
 const Hero: React.FC = () => {
   const isAnimating = useDelayedAnimation({ delay: 10 })
@@ -17,6 +18,8 @@ const Hero: React.FC = () => {
           isAnimating={isAnimating}
         />
       </div>
+      
+      <ScrollIndicator text="Projects" />
     </section>
   )
 }
