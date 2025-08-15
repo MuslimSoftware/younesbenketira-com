@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a personal website for Younes Benketira, an AI Full Stack Engineer. The site is built with React, Vite, and TypeScript, inspired by the design of diabrowser.com.
+This is a personal website for Younes Benketira, an AI Full Stack Engineer. The site is built with React, Vite, and TypeScript, featuring a clean, video-focused design with seamless project showcases.
 
 ## Development Commands
 
@@ -30,91 +30,133 @@ npm run type-check
 
 ## Site Architecture
 
-The website follows a single-page layout with the following sections in order:
+The website follows a single-page layout with the following sections:
 
-1. **Header**: Glossy, sticky navigation bar
+1. **Header**: Clean, sticky navigation bar
 2. **Hero Section**: 
-   - Large, stylized name display
-   - Job title "AI Full Stack Engineer" below name
+   - Large, stylized animated name display using SVG
+   - Job title "AI Full Stack Engineer" with delayed fade-in animation
+   - Scroll indicator with bouncing chevron
 3. **Projects Section**: 
-   - Each project takes full viewport height/width
-   - Components: project title, subtitle, video demo with rounded corners
+   - Full viewport height sections for each project
+   - Centered project title, description, and technology tags
+   - Mux video players with pill-based navigation for multiple videos
+   - Loading skeletons for placeholder/missing videos
+   - No dividers between projects for seamless flow
 4. **Contact Section**: Contact information and form
 5. **Footer**: Site footer with additional links/info
 
+## Current Projects
+
+1. **Saqr**: Personal AI Agent for work assistance
+   - Technologies: AI, Python, React Native Expo
+   - Videos: SQL Tool, Super Web Search Tool
+
+2. **Sawt**: No-Cost voice agent proof of concept
+   - Technologies: AI, Python, React
+   - Videos: Demo, Tutorial
+
+3. **Gathera**: Social Media App
+   - Technologies: Node.js, React Native Expo
+   - Videos: Overview
+
 ## Key Design Principles
 
-- **Full-height sections**: Each project section uses full viewport dimensions
-- **Video-centric**: Project demos are prominently featured with rounded corners
-- **Glossy header**: Sticky navigation with glossy/glass effect
-- **Typography focus**: Emphasis on beautiful font choices, especially for the hero name
-- **diabrowser.com inspiration**: Visual design and layout patterns based on this reference
+- **Video-centric design**: Mux video players with 40px border radius
+- **Responsive video sizing**: 80% viewport width, max 600px height, 16:9 aspect ratio
+- **Pill-based navigation**: Transparent gray pills for video switching with instant loading
+- **Centered content**: All text and elements horizontally centered
+- **Clean typography**: Compact tags and well-spaced content
+- **Loading states**: Animated gradient skeletons for missing videos
+- **Seamless sections**: No dividers between project sections
 
-## File Structure Expectations
+## File Structure
 
-- Components should be organized by section (Hero, Projects, Contact, etc.)
-- Video assets for project demos should be optimized for web
-- Styling should support glossy/glass morphism effects for header
-- Responsive design for all viewport sizes
-- All components should be properly typed with TypeScript
+```
+src/
+├── components/
+│   ├── Header.tsx
+│   ├── Hero.tsx
+│   ├── Projects.tsx
+│   ├── Contact.tsx
+│   ├── Footer.tsx
+│   ├── NavLinks.tsx
+│   └── ui/
+│       ├── AnimatedName.tsx
+│       ├── HeroTitle.tsx
+│       ├── ScrollIndicator.tsx
+│       ├── Demo.tsx
+│       ├── Tag.tsx
+│       └── VideoSkeleton.tsx
+├── data/
+│   └── projectsData.ts
+├── hooks/
+│   ├── useScrollVisibility.ts
+│   ├── useDelayedAnimation.ts
+│   └── useScrollOpacity.ts
+└── vite-env.d.ts
+```
 
 ## Technology Stack
 
-- **Framework**: React with Vite
-- **Language**: TypeScript for type safety
-- **Styling**: CSS/SCSS or styled-components (TBD based on implementation)
-- **Build Tool**: Vite for fast development and optimized builds
+- **Framework**: React 19.1.1 with Vite 7.1.2
+- **Language**: TypeScript 5.9.2 for type safety
+- **Video Player**: @mux/mux-player-react for video streaming
+- **Styling**: CSS with responsive design and CSS custom properties
+- **Environment**: Vite with typed environment variables
 
-## Version Requirements
+## Video Management
 
-Always use the latest stable versions of core dependencies:
+### Environment Variables
+Video playback IDs are stored in `.env` with `VITE_` prefix:
+```env
+# Saqr Project Videos
+VITE_SAQR_SQL_TOOL_VIDEO=your_mux_id_here
+VITE_SAQR_WEB_SEARCH_VIDEO=your_mux_id_here
 
-### Core Dependencies
-- **React**: ^19.1.1 (Latest stable - December 2024)
-  - [React 19 Release Notes](https://react.dev/blog/2024/12/05/react-19)
-  - [React 19 Upgrade Guide](https://react.dev/blog/2024/04/25/react-19-upgrade-guide)
-  - Key features: Actions, useActionState, useOptimistic, useFormStatus hooks, Server Components
-- **React DOM**: ^19.1.1
-  - [React DOM Documentation](https://react.dev/reference/react-dom)
-- **TypeScript**: ^5.9.2 (Latest stable)
-  - [TypeScript 5.9 Release Notes](https://devblogs.microsoft.com/typescript/announcing-typescript-5-9/)
-  - [TypeScript Documentation](https://www.typescriptlang.org/docs/)
-  - Key features: import defer, --module node20, expandable hovers, performance optimizations
-- **Vite**: ^7.1.2 (Latest stable)
-  - [Vite Documentation](https://vite.dev/)
-  - [Vite GitHub Releases](https://github.com/vitejs/vite/releases)
+# Sawt Project Videos  
+VITE_SAWT_DEMO_VIDEO=your_mux_id_here
+VITE_SAWT_TUTORIAL_VIDEO=your_mux_id_here
 
-### Development Dependencies
-- **@vitejs/plugin-react**: ^5.0.0
-  - [Plugin Documentation](https://github.com/vitejs/vite-plugin-react)
-- **ESLint**: ^9.17.0
-  - [ESLint v9 Migration Guide](https://eslint.org/docs/latest/use/migrate-to-9.0.0)
-- **@typescript-eslint**: ^8.18.1
-  - [TypeScript ESLint Documentation](https://typescript-eslint.io/)
+# Gathera Project Videos
+VITE_GATHERA_OVERVIEW_VIDEO=your_mux_id_here
+```
 
-## React 19 Specific Guidelines
+### Video Component Structure
+- **Demo Component**: Handles video switching and loading states
+- **VideoSkeleton**: Animated loading state for missing/loading videos
+- **Pill Navigation**: Shows below videos when multiple videos exist
+- **Preloading**: All videos in a project are rendered but hidden for instant switching
 
-When working with React 19, leverage these new features:
+### Video Specifications
+- **Aspect Ratio**: 16:9 maintained across all videos and skeletons
+- **Sizing**: 80vw width, max-height 600px for consistent display
+- **Border Radius**: 40px for rounded corners
+- **Loading**: Skeleton shows for placeholder IDs or missing videos
 
-### Actions
-- Use async functions in transitions for automatic pending state management
-- Implement server actions with `"use server"` directive
-- Handle form submissions with built-in error handling
+## Component Architecture
 
-### New Hooks
-- **useActionState**: Manage action states (pending, success, errors)
-- **useOptimistic**: Implement optimistic UI updates
-- **useFormStatus**: Track form submission status
+### Data Layer
+- `projectsData.ts`: Central data store with typed interfaces
+- Environment variables for sensitive video IDs
+- TypeScript interfaces ensure type safety
 
-### Server Components
-- Use Server Components for improved performance
-- Implement server actions for data mutations
-- Leverage automatic code splitting
+### UI Components
+- **Tag Component**: Color-coded technology tags with compact styling
+- **Demo Component**: Video player with state management and pill navigation
+- **VideoSkeleton**: Loading placeholder with gradient animation
+
+### Styling Approach
+- CSS custom properties for consistent theming
+- Responsive design without hardcoded breakpoints
+- `object-fit: cover` for proper video scaling
+- Centered layouts with `text-align: center` and `justify-content: center`
 
 ## Development Best Practices
 
 - Always run `npm run type-check` before committing
-- Use React 19's new `ref` as prop feature for cleaner component APIs
-- Leverage TypeScript 5.9's `import defer` for performance optimization
-- Follow Vite 7's latest build optimizations
-- Use ESLint 9's flat config format (eslint.config.js)
+- Use `import.meta.env` for Vite environment variables (not `process.env`)
+- Maintain 16:9 aspect ratio for all video containers
+- Use semantic HTML and proper accessibility
+- Keep components focused and single-responsibility
+- Extract reusable logic into custom hooks when appropriate
