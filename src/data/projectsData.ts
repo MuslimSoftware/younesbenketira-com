@@ -1,12 +1,20 @@
+export interface ProjectAsset {
+  label: string
+  // For videos
+  playbackId?: string
+  hasAudio?: boolean
+  // For images
+  src?: string
+  alt?: string
+}
+
 export interface Project {
   id: number
   title: string
   description: string
   tags: string[]
-  videos: Array<{
-    playbackId: string
-    label: string
-  }>
+  assetType: 'video' | 'image'
+  assets: ProjectAsset[]
 }
 
 export const projectsData: Project[] = [
@@ -15,14 +23,17 @@ export const projectsData: Project[] = [
     title: "Saqr",
     description: "Personal AI Agent, built to help me at work",
     tags: ["ai", "python", "react native expo"],
-    videos: [
+    assetType: 'video',
+    assets: [
       {
         playbackId: import.meta.env.VITE_SAQR_SQL_TOOL_VIDEO,
-        label: "SQL Tool"
+        label: "SQL Tool",
+        hasAudio: false
       },
       {
         playbackId: import.meta.env.VITE_SAQR_WEB_SEARCH_VIDEO,
-        label: "Super Web Search Tool"
+        label: "Super Web Search Tool",
+        hasAudio: false
       }
     ]
   },
@@ -31,14 +42,12 @@ export const projectsData: Project[] = [
     title: "Sawt",
     description: "Proof of concept for a No-Cost voice agent",
     tags: ["ai", "python", "react"],
-    videos: [
+    assetType: 'video',
+    assets: [
       {
         playbackId: import.meta.env.VITE_SAWT_DEMO_VIDEO,
-        label: "Demo"
-      },
-      {
-        playbackId: import.meta.env.VITE_SAWT_TUTORIAL_VIDEO,
-        label: "Tutorial"
+        label: "Demo",
+        hasAudio: true
       }
     ]
   },
@@ -47,10 +56,37 @@ export const projectsData: Project[] = [
     title: "Gathera",
     description: "Social Media App & company I tried to buildß",
     tags: ["node.js", "react native expo"],
-    videos: [
+    assetType: 'image',
+    assets: [
       {
-        playbackId: import.meta.env.VITE_GATHERA_OVERVIEW_VIDEO,
-        label: "Overview"
+        src: '/src/assets/images/gathera-1.png',
+        label: "Trending",
+        alt: "Become Trending"
+      },
+      {
+        src: '/src/assets/images/gathera-2.png',
+        label: "Discover",
+        alt: "Discover Places"
+      },
+      {
+        src: '/src/assets/images/gathera-3.png',
+        label: "Overview",
+        alt: "Gathera Overview"
+      },
+      {
+        src: '/src/assets/images/gathera-4.png',
+        label: "Overview",
+        alt: "Gathera Overview"
+      },
+      {
+        src: '/src/assets/images/gathera-5.png',
+        label: "Overview",
+        alt: "Gathera Overview"
+      },
+      {
+        src: '/src/assets/images/gathera-6.png',
+        label: "Overview",
+        alt: "Gathera Overview"
       }
     ]
   }

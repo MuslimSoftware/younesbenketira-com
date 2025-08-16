@@ -1,7 +1,7 @@
 import React from 'react'
 import { projectsData } from '../data/projectsData'
-import Demo from './ui/Demo'
-import Tag from './ui/Tag'
+import AssetViewer from './projects/AssetViewer'
+import Tag from './projects/Tag'
 
 const Projects: React.FC = () => {
   return (
@@ -18,7 +18,7 @@ const Projects: React.FC = () => {
                 ))}
               </div>
             </div>
-            <Demo project={project} />
+            <AssetViewer project={project} />
           </div>
         </div>
       ))}

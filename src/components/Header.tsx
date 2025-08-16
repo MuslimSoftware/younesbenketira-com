@@ -1,5 +1,5 @@
 import { useScrollVisibility } from '../hooks/useScrollVisibility'
-import NavLinks from './NavLinks'
+import NavLinks from './navigation/NavLinks'
 
 const Header: React.FC = () => {
   const isVisible = useScrollVisibility({ threshold: 100 })

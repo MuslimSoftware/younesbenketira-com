@@ -1,7 +1,7 @@
 import { useDelayedAnimation } from '../hooks/useDelayedAnimation'
-import AnimatedName from './ui/AnimatedName'
-import HeroTitle from './ui/HeroTitle'
-import ScrollIndicator from './ui/ScrollIndicator'
+import AnimatedName from './hero/AnimatedName'
+import HeroTitle from './hero/HeroTitle'
+import ScrollIndicator from './hero/ScrollIndicator'
 
 const Hero: React.FC = () => {
   const isAnimating = useDelayedAnimation({ delay: 10 })
