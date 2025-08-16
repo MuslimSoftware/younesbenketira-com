@@ -54,7 +54,7 @@ export const projectsData: Project[] = [
   {
     id: 3,
     title: "Gathera",
-    description: "Social Media App & company I tried to buildß",
+    description: "Social media mobile app I co-founded in 2023",
     tags: ["node.js", "react native expo"],
     assetType: 'image',
     assets: [

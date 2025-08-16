@@ -1,18 +1,24 @@
 import { useEffect, useState } from 'react'
 import { useScrollOpacity } from '../../hooks/useScrollOpacity'
+import { useViewportOpacity } from '../../hooks/useViewportOpacity'
 
 interface ScrollIndicatorProps {
   text: string
   delay?: number
+  useScrollOpacity?: boolean
+  useViewportFade?: boolean
 }
 
 const ScrollIndicator: React.FC<ScrollIndicatorProps> = ({ 
   text, 
-  delay = 3500 
+  delay = 3500,
+  useScrollOpacity: shouldUseScrollOpacity = true,
+  useViewportFade = false
 }) => {
   const [show, setShow] = useState(false)
   const [fadeIn, setFadeIn] = useState(false)
   const scrollOpacity = useScrollOpacity()
+  const { opacity: viewportOpacity, elementRef } = useViewportOpacity()
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -24,14 +30,29 @@ const ScrollIndicator: React.FC<ScrollIndicatorProps> = ({
 
   if (!show) return null
 
+  const getOpacity = () => {
+    if (!fadeIn) return 0
+    if (useViewportFade) return viewportOpacity
+    if (shouldUseScrollOpacity) return scrollOpacity
+    return 1
+  }
+
+  const getTransform = () => {
+    if (useViewportFade) {
+      return fadeIn ? 'translateY(0)' : 'translateY(20px)'
+    }
+    return fadeIn 
+      ? 'translateX(-50%) translateY(0)' 
+      : 'translateX(-50%) translateY(20px)'
+  }
+
   return (
     <div 
-      className={`scroll-indicator ${fadeIn ? 'fade-in' : ''}`}
+      ref={useViewportFade ? elementRef : undefined}
+      className={`scroll-indicator ${fadeIn ? 'fade-in' : ''} ${useViewportFade ? 'viewport-fade' : ''}`}
       style={{ 
-        opacity: fadeIn ? scrollOpacity : 0,
-        transform: fadeIn 
-          ? 'translateX(-50%) translateY(0)' 
-          : 'translateX(-50%) translateY(20px)'
+        opacity: getOpacity(),
+        transform: getTransform()
       }}
     >
       <span className="scroll-text">{text}</span>

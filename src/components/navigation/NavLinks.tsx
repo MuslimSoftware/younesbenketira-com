@@ -8,8 +8,10 @@ interface NavLinksProps {
 }
   
 const defaultNavItems: NavItem[] = [
-  { href: '#hero', label: 'Professional' },
-  { href: '#about', label: 'Personal' }
+  { href: '#hero', label: 'Home' },
+  { href: '#projects', label: 'Projects' },
+  { href: '#career', label: 'Career' },
+  { href: '#contact', label: 'Contact' }
 ]
 
 const NavLinks: React.FC<NavLinksProps> = ({ items = defaultNavItems }) => {
