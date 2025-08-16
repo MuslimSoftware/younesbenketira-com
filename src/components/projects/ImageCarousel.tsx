@@ -54,19 +54,24 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ assets }) => {
     <div
       ref={scrollContainerRef}
       onMouseDown={handleMouseDown}
+      className="hide-scrollbar"
       style={{
-        width: '80vw',
-        maxWidth: '1200px',
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        overflow: 'scroll',
+        paddingLeft: '20%',
+        paddingRight: '20%',
         height: '600px',
         overflowX: 'auto',
         overflowY: 'hidden',
         display: 'flex',
         gap: '40px',
-        padding: '20px',
-        borderRadius: '40px',
         cursor: 'grab',
         scrollBehavior: 'smooth',
-        WebkitOverflowScrolling: 'touch'
+        WebkitOverflowScrolling: 'touch',
+        scrollbarWidth: 'none',
+        msOverflowStyle: 'none'
       }}
     >
       {assets.map((asset, index) => (

@@ -51,7 +51,7 @@ html, body {
 }
 
 .project-header {
-  margin-bottom: 24px;
+  margin-bottom: 44px;
   text-align: center;
 }
 
@@ -151,4 +151,8 @@ html, body {
   justify-content: center;
   z-index: 10;
   pointer-events: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
 }

@@ -38,8 +38,8 @@ const AssetViewer: React.FC<AssetViewerProps> = ({ project }) => {
   // Handle image projects
   if (project.assetType === 'image') {
     return (
-      <div className="project-assets">
-        <div className="asset-container" style={{ display: 'flex', justifyContent: 'center' }}>
+      <div>
+        <div style={{ display: 'flex', justifyContent: 'center', height: '600px' }}>
           <ImageCarousel assets={project.assets} />
         </div>
       </div>
@@ -49,8 +49,8 @@ const AssetViewer: React.FC<AssetViewerProps> = ({ project }) => {
   // Handle video projects
   if (project.assetType === 'video') {
     return (
-      <div className="project-assets">
-        <div className="asset-container" style={{ position: 'relative' }}>
+      <div>
+        <div style={{ position: 'relative' }}>
           {project.assets.length > 0 ? (
             project.assets.map((asset, index) => (
               <div 
