@@ -19,17 +19,15 @@ const Demo: React.FC<DemoProps> = ({ project }) => {
               key={video.playbackId}
               className={`video-shell ${index === currentIndex ? 'active' : 'hidden'}`}
             >
-              <MuxPlayer 
+              <MuxPlayer
                 playbackId={video.playbackId}
                 streamType="on-demand"
                 autoPlay={index === currentIndex}
                 muted
                 loop
+                playsInline
+                preload="metadata"
                 className="mux-no-ui"
-                metadata={{
-                  video_id: `${project.id}-${index}`,
-                  video_title: `${project.title} - ${video.label}`,
-                }}
               />
             </div>
           ))

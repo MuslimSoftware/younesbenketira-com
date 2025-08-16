@@ -40,11 +40,6 @@ html, body {
 .video-shell {
   border-radius: 40px;
   overflow: hidden;
-  display: block;
-  width: 80vw;
-  max-height: 600px;
-  aspect-ratio: 16 / 9;
-  margin: 0 auto;
 }
 
 .video-shell > mux-player {
@@ -52,6 +47,7 @@ html, body {
   width: 100% !important;
   height: 100% !important;
   object-fit: cover;
+  transform: translateZ(0);
 }
 
 .project-header {
