@@ -39,7 +39,7 @@ const AssetViewer: React.FC<AssetViewerProps> = ({ project }) => {
   if (project.assetType === 'image') {
     return (
       <div>
-        <div style={{ display: 'flex', justifyContent: 'center', height: '600px' }}>
+        <div className="asset-viewer-image-container">
           <ImageCarousel assets={project.assets} />
         </div>
       </div>
@@ -50,14 +50,13 @@ const AssetViewer: React.FC<AssetViewerProps> = ({ project }) => {
   if (project.assetType === 'video') {
     return (
       <div>
-        <div style={{ position: 'relative' }}>
+        <div className="asset-viewer-container">
           {project.assets.length > 0 ? (
             project.assets.map((asset, index) => (
               <div 
                 key={asset.playbackId || index}
-                className={`video-shell ${index === currentIndex ? 'active' : 'hidden'}`}
+                className={`video-shell ${index === currentIndex ? 'active' : 'hidden'} asset-viewer-video-clickable`}
                 onClick={handleVideoToggle}
-                style={{ cursor: 'pointer' }}
               >
                 <MuxPlayer
                   ref={(el) => {

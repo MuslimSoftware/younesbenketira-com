@@ -34,17 +34,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ assets }) => {
 
   if (!assets.length) {
     return (
-      <div style={{
-        width: '80vw',
-        maxWidth: '1200px',
-        height: '600px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        background: '#f0f0f0',
-        borderRadius: '40px',
-        color: '#999'
-      }}>
+      <div className="image-carousel-empty">
         No images available
       </div>
     )
@@ -54,48 +44,17 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ assets }) => {
     <div
       ref={scrollContainerRef}
       onMouseDown={handleMouseDown}
-      className="hide-scrollbar"
-      style={{
-        position: 'absolute',
-        left: 0,
-        right: 0,
-        overflow: 'scroll',
-        paddingLeft: '20%',
-        paddingRight: '20%',
-        height: '600px',
-        overflowX: 'auto',
-        overflowY: 'hidden',
-        display: 'flex',
-        gap: '40px',
-        cursor: 'grab',
-        scrollBehavior: 'smooth',
-        WebkitOverflowScrolling: 'touch',
-        scrollbarWidth: 'none',
-        msOverflowStyle: 'none'
-      }}
+      className="image-carousel-scroll hide-scrollbar"
     >
       {assets.map((asset, index) => (
         <div
           key={asset.src || index}
-          style={{
-            flexShrink: 0,
-            width: 'auto',
-            height: '100%',
-            display: 'flex',
-            alignItems: 'center'
-          }}
+          className="image-carousel-item"
         >
           <img
             src={asset.src}
             alt={asset.alt || asset.label}
-            style={{
-              maxHeight: '100%',
-              maxWidth: '100%',
-              objectFit: 'contain',
-              borderRadius: '20px',
-              userSelect: 'none',
-              pointerEvents: 'none'
-            }}
+            className="image-carousel-image"
             draggable={false}
           />
         </div>

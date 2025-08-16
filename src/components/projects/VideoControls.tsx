@@ -20,37 +20,12 @@ const VideoControls: React.FC<VideoControlsProps> = ({
   onMuteToggle,
   onVideoToggle
 }) => {
-  const buttonStyle = {
-    background: 'rgba(0, 0, 0, 0.6)',
-    border: 'none',
-    borderRadius: '50%',
-    width: '40px',
-    height: '40px',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    cursor: 'pointer',
-    color: 'white',
-    transition: 'background 0.2s ease'
-  }
-
   return (
-    <div 
-      className="video-controls"
-      style={{
-        position: 'absolute',
-        top: '16px',
-        left: '16px',
-        display: 'flex',
-        gap: '8px',
-        zIndex: 10
-      }}
-    >
+    <div className="video-controls">
       {project.assetType === 'video' && project.assets[currentIndex]?.hasAudio && (
         <button 
           onClick={onMuteToggle}
-          className="mute-toggle"
-          style={buttonStyle}
+          className="video-control-button mute-toggle"
         >
           <IonIcon icon={isMuted ? volumeMuteOutline : volumeHighOutline} size="small" />
         </button>
@@ -58,8 +33,7 @@ const VideoControls: React.FC<VideoControlsProps> = ({
       {isPaused && (
         <button 
           onClick={onVideoToggle}
-          className="pause-indicator"
-          style={buttonStyle}
+          className="video-control-button pause-indicator"
         >
           <IonIcon icon={pauseOutline} size="small" />
         </button>

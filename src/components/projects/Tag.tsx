@@ -19,13 +19,7 @@ const Tag: React.FC<TagProps> = ({ children }) => {
     <span 
       className="project-tag"
       style={{
-        backgroundColor: color,
-        color: 'white',
-        padding: '4px 10px',
-        borderRadius: '16px',
-        fontSize: '11px',
-        fontWeight: '500',
-        display: 'inline-block'
+        backgroundColor: color
       }}
     >
       {children}
