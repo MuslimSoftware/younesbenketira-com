@@ -1,7 +1,7 @@
 export interface CareerAsset {
   label: string
-  playbackId?: string
-  hasAudio?: boolean
+  src?: string
+  alt?: string
 }
 
 export interface CareerExperience {
@@ -25,14 +25,14 @@ export const careerData: CareerExperience[] = [
     link: "https://www.flighthub.com",
     location: "Montreal, Quebec, Canada",
     jobTitle: "Senior Full Stack Engineer",
-    duration: "2023 - present",
+    duration: "2022 - present",
     description: "Built solutions across the tech stack from front-end to back-end to infrastructure, reported directly to CEO to solve technical problems across the company",
     tags: ["php", "node.js", "python", "react"],
     assets: [
       {
-        playbackId: import.meta.env.VITE_CAREER_EXAMPLE_VIDEO,
-        label: "Project Demo",
-        hasAudio: false
+        src: '/src/assets/images/flighthub.png',
+        label: "FlightHub",
+        alt: "FlightHub Company"
       }
     ]
   }

@@ -331,6 +331,39 @@ html, body {
 }
 
 /* ========================================
+   CAREER SECTION
+   ======================================== */
+.job {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.career-asset-viewer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.career-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  height: 350px;
+}
+
+.career-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 3px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* ========================================
    UTILITY CLASSES
    ======================================== */
 .hide-scrollbar::-webkit-scrollbar {
