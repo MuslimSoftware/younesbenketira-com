@@ -456,41 +456,110 @@ body {
   background: #0056b3;
 }
 
-/* Footer styles */
-.footer {
-  background: #333;
-  color: white;
-  padding: 3rem 0;
-  text-align: center;
-}
-
-.footer-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
-.footer-links {
-  display: flex;
-  justify-content: center;
+/* Socials styles */
+.socials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
-  margin-bottom: 2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2rem 0;
 }
 
-.footer-links a {
-  color: white;
+.social-card {
+  position: relative;
+  border-radius: 12px;
+  padding: 0.25rem 0;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  background: white;
+  border: 2px solid #f0f0f0;
+  border-radius: 12px;
   text-decoration: none;
+  color: #333;
   font-weight: 500;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+  width: 100%;
+  text-align: left;
 }
 
-.footer-links a:hover {
+.social-link:hover {
+  border-color: #007bff;
+  background: #f8f9fa;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.15);
+}
+
+.social-icon {
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  color: #333;
+}
+
+.social-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  flex: 1;
+}
+
+.social-name {
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.social-handle {
+  font-size: 0.95rem;
+  color: #555;
+  font-weight: 500;
+  font-family: 'Courier New', monospace;
+  user-select: all;
+}
+
+.copy-button {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(4px);
+  z-index: 1;
+}
+
+.copy-button:hover {
+  background: rgba(255, 255, 255, 1);
+  border-color: #007bff;
+  transform: scale(1.05);
+}
+
+.copy-icon {
+  font-size: 1rem;
+  color: #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.copy-button:hover .copy-icon {
   color: #007bff;
 }
 
-.footer-text {
-  color: #ccc;
-}
 
 /* Responsive styles */
 @media (max-width: 768px) {
@@ -519,10 +588,23 @@ body {
     gap: 1rem;
   }
   
-  .footer-links {
-    flex-direction: column;
+  .socials-grid {
+    grid-template-columns: 1fr;
     gap: 1rem;
+    padding: 1.5rem 0;
+    max-width: 100%;
   }
+  
+  .social-link {
+    padding: 0.875rem 1.25rem;
+  }
+  
+  .copy-button {
+    top: 0.5rem;
+    right: 0.5rem;
+    padding: 0.375rem;
+  }
+  
   
   /* Career mobile styles */
   .career-company {
