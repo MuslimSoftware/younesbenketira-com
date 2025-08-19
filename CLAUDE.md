@@ -38,13 +38,14 @@ The website follows a single-page layout with the following sections:
    - Job title "AI Full Stack Engineer" with delayed fade-in animation
    - Scroll indicator with bouncing chevron
 3. **Projects Section**: 
-   - Full viewport height sections for each project
+   - Responsive height sections for each project (70vh on mobile)
    - Centered project title, description, and technology tags
    - Mux video players with pill-based navigation for multiple videos
+   - Image carousels for projects with image assets (Gathera)
    - Loading skeletons for placeholder/missing videos
    - No dividers between projects for seamless flow
-4. **Contact Section**: Contact information and form
-5. **Footer**: Site footer with additional links/info
+4. **Career Section**: Professional experience and current role information
+5. **Contact Section**: Social media links with copy-to-clipboard functionality
 
 ## Current Projects
 
@@ -58,17 +59,18 @@ The website follows a single-page layout with the following sections:
 
 3. **Gathera**: Social Media App
    - Technologies: Node.js, React Native Expo
-   - Videos: Overview
+   - Assets: Image carousel with multiple app screenshots
 
 ## Key Design Principles
 
-- **Video-centric design**: Mux video players with 40px border radius
-- **Responsive video sizing**: 80% viewport width, max 600px height, 16:9 aspect ratio
+- **Media-centric design**: Mux video players and image carousels with rounded corners
+- **Responsive sizing**: Optimized for both desktop and mobile viewing
 - **Pill-based navigation**: Transparent gray pills for video switching with instant loading
-- **Centered content**: All text and elements horizontally centered
+- **Centered content**: All text and elements horizontally and vertically centered
 - **Clean typography**: Compact tags and well-spaced content
 - **Loading states**: Animated gradient skeletons for missing videos
 - **Seamless sections**: No dividers between project sections
+- **Mobile optimization**: Reduced section heights and appropriate padding on mobile devices
 
 ## File Structure
 
@@ -78,18 +80,26 @@ src/
 │   ├── Header.tsx
 │   ├── Hero.tsx
 │   ├── Projects.tsx
+│   ├── Career.tsx
 │   ├── Contact.tsx
-│   ├── Footer.tsx
-│   ├── NavLinks.tsx
-│   └── ui/
-│       ├── AnimatedName.tsx
-│       ├── HeroTitle.tsx
-│       ├── ScrollIndicator.tsx
-│       ├── Demo.tsx
-│       ├── Tag.tsx
-│       └── VideoSkeleton.tsx
+│   ├── SectionTransition.tsx
+│   ├── hero/
+│   │   ├── AnimatedName.tsx
+│   │   ├── HeroTitle.tsx
+│   │   └── ScrollIndicator.tsx
+│   ├── projects/
+│   │   ├── AssetViewer.tsx
+│   │   ├── ImageCarousel.tsx
+│   │   ├── Tag.tsx
+│   │   ├── VideoControls.tsx
+│   │   └── VideoSkeleton.tsx
+│   └── career/
+│       ├── Job.tsx
+│       └── CareerAssetViewer.tsx
 ├── data/
-│   └── projectsData.ts
+│   ├── projectsData.ts
+│   ├── careerData.ts
+│   └── socialsData.ts
 ├── hooks/
 │   ├── useScrollVisibility.ts
 │   ├── useDelayedAnimation.ts
@@ -102,6 +112,7 @@ src/
 - **Framework**: React 19.1.1 with Vite 7.1.2
 - **Language**: TypeScript 5.9.2 for type safety
 - **Video Player**: @mux/mux-player-react for video streaming
+- **Icons**: react-icons for social media and UI icons
 - **Styling**: CSS with responsive design and CSS custom properties
 - **Environment**: Vite with typed environment variables
 
@@ -122,41 +133,67 @@ VITE_SAWT_TUTORIAL_VIDEO=your_mux_id_here
 VITE_GATHERA_OVERVIEW_VIDEO=your_mux_id_here
 ```
 
-### Video Component Structure
-- **Demo Component**: Handles video switching and loading states
+### Asset Component Structure
+- **AssetViewer**: Main component that handles both video and image assets
+- **VideoControls**: Play/pause and mute controls for videos
+- **ImageCarousel**: Horizontal scrolling carousel for image assets
 - **VideoSkeleton**: Animated loading state for missing/loading videos
 - **Pill Navigation**: Shows below videos when multiple videos exist
 - **Preloading**: All videos in a project are rendered but hidden for instant switching
 
-### Video Specifications
-- **Aspect Ratio**: 16:9 maintained across all videos and skeletons
-- **Sizing**: 80vw width, max-height 600px for consistent display
-- **Border Radius**: 40px for rounded corners
-- **Loading**: Skeleton shows for placeholder IDs or missing videos
+### Asset Specifications
+- **Videos**: 16:9 aspect ratio with 40px border radius
+- **Images**: Flexible sizing with smooth horizontal scrolling
+- **Responsive**: Smaller heights on mobile devices for better UX
+- **Loading**: Skeleton shows for placeholder IDs or missing assets
 
 ## Component Architecture
 
 ### Data Layer
-- `projectsData.ts`: Central data store with typed interfaces
+- `projectsData.ts`: Central data store for project information with typed interfaces
+- `careerData.ts`: Professional experience and career information
+- `socialsData.ts`: Social media links with copy functionality and react-icons
 - Environment variables for sensitive video IDs
 - TypeScript interfaces ensure type safety
 
 ### UI Components
 - **Tag Component**: Color-coded technology tags with compact styling
-- **Demo Component**: Video player with state management and pill navigation
+- **AssetViewer**: Handles both video players and image carousels
+- **ImageCarousel**: Smooth horizontal scrolling for image assets
 - **VideoSkeleton**: Loading placeholder with gradient animation
+- **Contact Component**: Social media cards with copy-to-clipboard functionality
 
 ### Styling Approach
 - CSS custom properties for consistent theming
-- Responsive design without hardcoded breakpoints
-- `object-fit: cover` for proper video scaling
-- Centered layouts with `text-align: center` and `justify-content: center`
+- Mobile-first responsive design with specific breakpoints (768px)
+- `object-fit: cover` for proper video scaling, `object-fit: contain` for images
+- Centered layouts with flexbox properties
+- Reduced heights and appropriate padding for mobile optimization
+
+## Contact Section Features
+
+The contact section ("Let's Connect 🔥") includes:
+- **Social Media Integration**: X (Twitter), GitHub, LinkedIn with proper brand icons
+- **Copy-to-Clipboard**: One-click copying of social URLs and contact information
+- **Visual Feedback**: Icons change to checkmarks when copied successfully
+- **Responsive Design**: Cards stack on mobile, grid layout on desktop
+- **React Icons**: Uses react-icons for authentic brand logos (RiTwitterXFill for X, FaGithub, FaLinkedin, etc.)
+
+### Social Data Structure
+Each social link includes:
+- Platform name and handle display
+- Full URL for copying (except email/phone)
+- React icon component
+- Click behavior (new tab for socials, direct action for email/phone)
 
 ## Development Best Practices
 
 - Always run `npm run type-check` before committing
 - Use `import.meta.env` for Vite environment variables (not `process.env`)
-- Maintain 16:9 aspect ratio for all video containers
+- Maintain 16:9 aspect ratio for video containers
 - Use semantic HTML and proper accessibility
 - Keep components focused and single-responsibility
 - Extract reusable logic into custom hooks when appropriate
+- Use react-icons for consistent iconography across the site
+- Optimize for mobile with reduced heights and appropriate spacing
+- Test responsive behavior across different screen sizes

@@ -284,7 +284,7 @@ html, body {
   overflow: scroll;
   padding-left: 20%;
   padding-right: 20%;
-  height: 600px;
+  height: 500px;
   overflow-x: auto;
   overflow-y: hidden;
   display: flex;
@@ -323,7 +323,7 @@ html, body {
 .asset-viewer-image-container {
   display: flex;
   justify-content: center;
-  height: 600px;
+  height: 500px;
 }
 
 .asset-viewer-video-clickable {
@@ -338,6 +338,7 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0 2rem;
 }
 
 .career-asset-viewer {
@@ -368,4 +369,42 @@ html, body {
    ======================================== */
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+/* ========================================
+   MOBILE RESPONSIVE STYLES
+   ======================================== */
+@media (max-width: 768px) {
+  .job {
+    min-height: 70vh;
+    padding: 2rem 1rem;
+  }
+  
+  /* Make asset viewer smaller on mobile */
+  .asset-viewer-image-container {
+    height: 300px;
+  }
+  
+  .image-carousel-container {
+    height: 300px;
+  }
+  
+  .image-carousel-scroll {
+    height: 300px;
+  }
+  
+  /* Add more horizontal padding to career content on mobile */
+  .career-info {
+    padding: 0 1rem;
+  }
+  
+  .career-video {
+    padding: 0 1rem;
+  }
+  
+  /* Remove height restriction and add padding to career image */
+  .career-image-container {
+    height: auto;
+    padding: 1rem;
+  }
 }

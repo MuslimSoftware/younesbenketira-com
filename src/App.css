@@ -564,7 +564,7 @@ body {
 /* Responsive styles */
 @media (max-width: 768px) {
   .animated-name-svg {
-    max-width: 480px;
+    max-width: 100%;
     min-height: 100px;
   }
   
@@ -648,5 +648,11 @@ body {
   
   .career-asset-viewer {
     max-width: 100%;
+  }
+  
+  /* Project sections mobile styles */
+  .project-section {
+    min-height: 70vh;
+    padding: 2rem 1rem;
   }
 }
