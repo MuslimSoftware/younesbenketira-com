@@ -2,6 +2,7 @@ import React from 'react'
 import { projectsData } from '../data/projectsData'
 import AssetViewer from './projects/AssetViewer'
 import Tag from './projects/Tag'
+import ProjectLinks from './projects/ProjectLinks'
 
 const Projects: React.FC = () => {
   return (
@@ -17,6 +18,7 @@ const Projects: React.FC = () => {
                   <Tag key={index}>{tag}</Tag>
                 ))}
               </div>
+              {project.links && <ProjectLinks links={project.links} />}
             </div>
             <AssetViewer project={project} />
           </div>

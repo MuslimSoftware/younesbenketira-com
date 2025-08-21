@@ -200,6 +200,44 @@ html, body {
   margin: 0 0 16px 0;
 }
 
+.project-links {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin: 16px 0 0 0;
+}
+
+.project-link-button {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: white;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.project-link-button:hover:not(:disabled) {
+  background: rgba(128, 128, 128, 0.1);
+  transform: translateY(-2px);
+}
+
+.project-link-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.project-link-button:disabled {
+  background: #ccc;
+  color: #999;
+  cursor: not-allowed;
+  transform: none;
+}
+
 .project-tags {
   display: flex;
   flex-wrap: wrap;

@@ -8,6 +8,11 @@ export interface ProjectAsset {
   alt?: string
 }
 
+export interface ProjectLink {
+  url: string
+  type: 'github' | 'demo'
+}
+
 export interface Project {
   id: number
   title: string
@@ -15,6 +20,7 @@ export interface Project {
   tags: string[]
   assetType: 'video' | 'image'
   assets: ProjectAsset[]
+  links?: ProjectLink[]
 }
 
 export const projectsData: Project[] = [
@@ -35,6 +41,16 @@ export const projectsData: Project[] = [
         label: "Super Web Search Tool",
         hasAudio: false
       }
+    ],
+    links: [
+      {
+        url: "https://github.com/MuslimSoftware/Saqr",
+        type: "github"
+      },
+      {
+        url: "https://saqr.younesbenketira.com",
+        type: "demo"
+      }
     ]
   },
   {
@@ -48,6 +64,16 @@ export const projectsData: Project[] = [
         playbackId: import.meta.env.VITE_SAWT_DEMO_VIDEO,
         label: "Demo",
         hasAudio: true
+      }
+    ],
+    links: [
+      {
+        url: "https://github.com/MuslimSoftware/Sawt",
+        type: "github"
+      },
+      {
+        url: "https://sawt.younesbenketira.com",
+        type: "demo"
       }
     ]
   },
@@ -87,6 +113,12 @@ export const projectsData: Project[] = [
         src: '/src/assets/images/gathera-6.png',
         label: "Overview",
         alt: "Gathera Overview"
+      }
+    ],
+    links: [
+      {
+        url: "https://github.com/MuslimSoftware/Gathera",
+        type: "github"
       }
     ]
   }
