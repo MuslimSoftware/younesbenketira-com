@@ -318,6 +318,8 @@ html, body {
    ======================================== */
 .asset-viewer-container {
   position: relative;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .asset-viewer-image-container {

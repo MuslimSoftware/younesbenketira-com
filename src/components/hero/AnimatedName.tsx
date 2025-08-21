@@ -60,7 +60,7 @@ const AnimatedName: React.FC<AnimatedNameProps> = ({
     <div className="animated-name-container">
       <svg 
         className="animated-name-svg" 
-        viewBox="0 0 1400 220" 
+        viewBox="0 0 1800 220" 
         xmlns="http://www.w3.org/2000/svg"
       >
         <defs>
@@ -68,12 +68,12 @@ const AnimatedName: React.FC<AnimatedNameProps> = ({
         </defs>
         
         {/* Draw the stroke */}
-        <text x="700" y="160" textAnchor="middle" className="name-path">
+        <text x="900" y="160" textAnchor="middle" className="name-path">
           {name}
         </text>
         
         {/* Fill the text */}
-        <text x="700" y="160" textAnchor="middle" className="name-fill">
+        <text x="900" y="160" textAnchor="middle" className="name-fill">
           {name}
         </text>
       </svg>
