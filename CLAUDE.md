@@ -28,6 +28,34 @@ npm run lint
 npm run type-check
 ```
 
+## Docker Commands
+
+```bash
+# Build Docker image
+docker build -t younesbenketira-com .
+
+# Run Docker container
+docker run -p 8080:80 younesbenketira-com
+
+# Run in background (detached mode)
+docker run -d -p 8080:80 --name portfolio younesbenketira-com
+
+# Stop container
+docker stop portfolio
+
+# Remove container
+docker rm portfolio
+
+# View logs
+docker logs portfolio
+```
+
+### Docker Build Process
+The Dockerfile uses a multi-stage build:
+1. **Build Stage**: Node.js Alpine builds the React/Vite app (`npm run build`)
+2. **Production Stage**: Nginx Alpine serves static files from `/dist`
+3. **Result**: Lightweight ~15MB production image vs 300MB+ with Node.js
+
 ## Site Architecture
 
 The website follows a single-page layout with the following sections:

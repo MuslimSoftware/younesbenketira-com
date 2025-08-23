@@ -1,0 +1,42 @@
+# Dependencies
+node_modules
+npm-debug.log*
+
+# Build outputs (keep dist exclusion for local builds, but not needed for Docker)
+build
+
+# Development files
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Git
+.git
+.gitignore
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs
+*.log
+
+# Docker
+Dockerfile
+.dockerignore
+
+# Documentation
+README.md
+CLAUDE.md
+
+# Temporary files
+.tmp
+.temp

@@ -34,7 +34,7 @@ export const careerData: CareerExperience[] = [
     tags: ["php", "node.js", "python", "react"],
     assets: [
       {
-        src: '/src/assets/images/flighthub.png',
+        src: '/images/flighthub.png',
         label: "FlightHub",
         alt: "FlightHub Company"
       }

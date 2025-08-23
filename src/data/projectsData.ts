@@ -85,32 +85,32 @@ export const projectsData: Project[] = [
     assetType: 'image',
     assets: [
       {
-        src: '/src/assets/images/gathera-1.png',
+        src: '/images/gathera-1.png',
         label: "Trending",
         alt: "Become Trending"
       },
       {
-        src: '/src/assets/images/gathera-2.png',
+        src: '/images/gathera-2.png',
         label: "Discover",
         alt: "Discover Places"
       },
       {
-        src: '/src/assets/images/gathera-3.png',
+        src: '/images/gathera-3.png',
         label: "Overview",
         alt: "Gathera Overview"
       },
       {
-        src: '/src/assets/images/gathera-4.png',
+        src: '/images/gathera-4.png',
         label: "Overview",
         alt: "Gathera Overview"
       },
       {
-        src: '/src/assets/images/gathera-5.png',
+        src: '/images/gathera-5.png',
         label: "Overview",
         alt: "Gathera Overview"
       },
       {
-        src: '/src/assets/images/gathera-6.png',
+        src: '/images/gathera-6.png',
         label: "Overview",
         alt: "Gathera Overview"
       }
