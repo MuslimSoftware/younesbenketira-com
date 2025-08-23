@@ -32,6 +32,7 @@ logs
 # Docker
 Dockerfile
 .dockerignore
+# Keep nginx.conf for container build
 
 # Documentation
 README.md
