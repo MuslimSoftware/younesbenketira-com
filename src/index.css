@@ -74,7 +74,7 @@ html, body {
   display: flex;
   justify-content: center;
   gap: 8px;
-  margin-top: 26px;
+  margin-top: 16px;
 }
 
 .video-pill {
@@ -188,7 +188,7 @@ html, body {
 }
 
 .project-header {
-  margin-bottom: 44px;
+  margin-bottom: 24px;
   text-align: center;
 }
 
