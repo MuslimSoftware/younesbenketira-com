@@ -26,8 +26,7 @@ FROM nginx:alpine AS production
 # Copy built static files from build stage to Nginx serve directory
 COPY --from=build /app/dist /usr/share/nginx/html
 
-# Copy custom Nginx configuration
-COPY nginx.conf /etc/nginx/nginx.conf
+# Use default Nginx configuration (serves from /usr/share/nginx/html)
 
 # Expose port 80 for web traffic
 EXPOSE 80
