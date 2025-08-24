@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import { projectsData } from '../data/projectsData'
-import AssetViewer from './projects/AssetViewer'
 import Tag from './projects/Tag'
 import ProjectLinks from './projects/ProjectLinks'
+import VideoSkeleton from './projects/VideoSkeleton'
+
+const AssetViewer = React.lazy(() => import('./projects/AssetViewer'))
 
 const Projects: React.FC = () => {
   return (
@@ -20,7 +22,15 @@ const Projects: React.FC = () => {
               </div>
               {project.links && <ProjectLinks links={project.links} />}
             </div>
-            <AssetViewer project={project} />
+            <Suspense fallback={
+              <div className="asset-viewer-container">
+                <div className="video-shell active">
+                  <VideoSkeleton />
+                </div>
+              </div>
+            }>
+              <AssetViewer project={project} />
+            </Suspense>
           </div>
         </div>
       ))}

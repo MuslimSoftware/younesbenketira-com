@@ -1,6 +1,5 @@
 import React from 'react'
-import { IonIcon } from '@ionic/react'
-import { volumeHighOutline, volumeMuteOutline, pauseOutline } from 'ionicons/icons'
+import { IoVolumeHigh, IoVolumeMute, IoPause } from 'react-icons/io5'
 import { type Project } from '../../data/projectsData'
 
 interface VideoControlsProps {
@@ -27,7 +26,7 @@ const VideoControls: React.FC<VideoControlsProps> = ({
           onClick={onMuteToggle}
           className="video-control-button mute-toggle"
         >
-          <IonIcon icon={isMuted ? volumeMuteOutline : volumeHighOutline} size="small" />
+          {isMuted ? <IoVolumeMute size={16} /> : <IoVolumeHigh size={16} />}
         </button>
       )}
       {isPaused && (
@@ -35,7 +34,7 @@ const VideoControls: React.FC<VideoControlsProps> = ({
           onClick={onVideoToggle}
           className="video-control-button pause-indicator"
         >
-          <IonIcon icon={pauseOutline} size="small" />
+          <IoPause size={16} />
         </button>
       )}
     </div>
