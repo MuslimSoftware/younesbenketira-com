@@ -507,7 +507,6 @@ body {
 
 .social-link:hover {
   border-color: #007bff;
-  background: #f8f9fa;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 123, 255, 0.15);
 }
@@ -671,5 +670,10 @@ body {
   .project-section {
     min-height: 85vh;
     padding: 2rem 1rem;
+  }
+  
+  /* Section transition mobile styles */
+  .section-transition {
+    padding: 8rem 2rem 0 2rem;
   }
 }

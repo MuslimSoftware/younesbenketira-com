@@ -222,7 +222,7 @@ html, body {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  border: none;
+  border: 2px solid #e9ecef;
   background: white;
   color: #333;
   display: flex;
@@ -234,7 +234,7 @@ html, body {
 }
 
 .project-link-button:hover:not(:disabled) {
-  background: rgba(128, 128, 128, 0.1);
+  border-color: #007bff;
   transform: translateY(-2px);
 }
 
