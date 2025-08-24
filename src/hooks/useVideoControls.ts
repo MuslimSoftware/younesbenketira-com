@@ -3,7 +3,8 @@ import { MutableRefObject } from 'react'
 interface UseVideoControlsProps {
   currentIndex: number
   setCurrentIndex: (index: number) => void
-  setIsPaused: (paused: boolean) => void
+  pausedVideos: Record<number, boolean>
+  setPausedVideos: (pausedVideos: Record<number, boolean>) => void
   isMuted: boolean
   setIsMuted: (muted: boolean) => void
   videoRefs: MutableRefObject<(any | null)[]>
@@ -12,7 +13,8 @@ interface UseVideoControlsProps {
 export const useVideoControls = ({
   currentIndex,
   setCurrentIndex,
-  setIsPaused,
+  pausedVideos,
+  setPausedVideos,
   isMuted,
   setIsMuted,
   videoRefs
@@ -22,17 +24,17 @@ export const useVideoControls = ({
     if (currentVideo) {
       if (currentVideo.paused) {
         currentVideo.play()
-        setIsPaused(false)
+        setPausedVideos({ ...pausedVideos, [currentIndex]: false })
       } else {
         currentVideo.pause()
-        setIsPaused(true)
+        setPausedVideos({ ...pausedVideos, [currentIndex]: true })
       }
     }
   }
 
   const handleVideoSwitch = (index: number) => {
     setCurrentIndex(index)
-    setIsPaused(false)
+    // No need to update pause state - each video maintains its own state
   }
 
   const handleMuteToggle = (e: React.MouseEvent) => {

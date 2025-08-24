@@ -15,8 +15,8 @@ const AssetViewer: React.FC<AssetViewerProps> = ({ project }) => {
   const {
     currentIndex,
     setCurrentIndex,
-    isPaused,
-    setIsPaused,
+    pausedVideos,
+    setPausedVideos,
     isMuted,
     setIsMuted,
     videoRefs
@@ -29,7 +29,8 @@ const AssetViewer: React.FC<AssetViewerProps> = ({ project }) => {
   } = useVideoControls({
     currentIndex,
     setCurrentIndex,
-    setIsPaused,
+    pausedVideos,
+    setPausedVideos,
     isMuted,
     setIsMuted,
     videoRefs
@@ -84,7 +85,7 @@ const AssetViewer: React.FC<AssetViewerProps> = ({ project }) => {
           <VideoControls
             project={project}
             currentIndex={currentIndex}
-            isPaused={isPaused}
+            isPaused={pausedVideos[currentIndex] || false}
             isMuted={isMuted}
             onMuteToggle={handleMuteToggle}
             onVideoToggle={handleVideoToggle}
