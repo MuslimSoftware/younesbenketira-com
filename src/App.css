@@ -86,6 +86,11 @@ body {
   color: #007bff;
 }
 
+/* Page Navigation Active State */
+.nav-links a.active {
+  font-weight: 600;
+}
+
 /* Hero section styles */
 .hero {
   min-height: 100vh;
@@ -688,5 +693,380 @@ body {
   /* Section transition mobile styles */
   .section-transition {
     padding: 12rem 2rem 0 2rem;
+  }
+}
+
+/* Personal Page Styles */
+
+/* Personal Hero Section */
+.personal-hero {
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  color: #333;
+  text-align: center;
+  padding: 8rem 2rem 4rem 2rem;
+}
+
+.personal-hero-content {
+  max-width: 800px;
+}
+
+.personal-hero-title {
+  font-size: 4rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.personal-hero-subtitle {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: #666;
+  margin: 0;
+}
+
+/* Gaming Section */
+.gaming-section {
+  background: white;
+  padding: 8rem 2rem 2rem 2rem;
+}
+
+.gaming-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.gaming-intro {
+  text-align: center;
+  margin-bottom: 6rem;
+}
+
+.gaming-title {
+  font-size: 3rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.gaming-description {
+  font-size: 1.25rem;
+  color: #666;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.gaming-achievement {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 6rem;
+  min-height: 400px;
+  gap: 3rem;
+}
+
+.gaming-achievement.left-video {
+  flex-direction: row;
+}
+
+.gaming-achievement.right-video {
+  flex-direction: row;
+}
+
+.gaming-achievement .gaming-video {
+  flex: 1.5;
+  min-width: 0;
+}
+
+.gaming-achievement .gaming-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.gaming-video {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.video-container {
+  width: 100%;
+  max-width: 600px;
+  aspect-ratio: 16/9;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.twitch-embed {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.gaming-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: flex-start;
+  height: 100%;
+}
+
+.gaming-text.centered {
+  text-align: center;
+  align-items: center;
+}
+
+.achievement-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.achievement-rank {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #007bff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+}
+
+.achievement-description {
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.achievement-stats {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.stat {
+  background: #f8f9fa;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #666;
+  border: 1px solid #e9ecef;
+}
+
+.gaming-career {
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: 2rem;
+}
+
+.achievement-ranks {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+  max-width: 600px;
+}
+
+.rank-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: #f8f9fa;
+  border: 2px solid #e9ecef;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.rank-item:hover {
+  border-color: #007bff;
+  transform: translateY(-2px);
+}
+
+.rank-game {
+  font-weight: 500;
+  color: #333;
+}
+
+.rank-tier {
+  font-weight: 600;
+  color: #007bff;
+}
+
+.vlr-inline-link {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.vlr-inline-link:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+.other-games-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: left;
+}
+
+.other-games-list li {
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.6;
+  position: relative;
+  padding-left: 1rem;
+  text-align: left;
+}
+
+.other-games-list li::before {
+  content: "•";
+  color: #333;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+/* Faith Section */
+.faith-section {
+  background: white;
+  padding: 8rem 2rem;
+}
+
+.faith-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.faith-title {
+  font-size: 3rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.faith-image {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4rem;
+}
+
+.faith-picture {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.faith-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.faith-description {
+  font-size: 1.2rem;
+  color: #666;
+  line-height: 1.7;
+  text-align: left;
+  margin: 0;
+}
+
+/* Personal Page Mobile Responsive */
+@media (max-width: 768px) {
+  .personal-hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .personal-hero-subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .gaming-title {
+    font-size: 2rem;
+  }
+  
+  .gaming-achievement {
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    min-height: auto;
+  }
+  
+  .gaming-achievement.left-video,
+  .gaming-achievement.right-video {
+    flex-direction: column;
+  }
+  
+  .gaming-achievement.left-video .gaming-text {
+    order: 1;
+  }
+  
+  .gaming-achievement.left-video .gaming-video {
+    order: 2;
+  }
+  
+  .gaming-achievement.right-video .gaming-text {
+    order: 1;
+  }
+  
+  .gaming-achievement.right-video .gaming-video {
+    order: 2;
+  }
+  
+  .gaming-achievement .gaming-video,
+  .gaming-achievement .gaming-text {
+    flex: none;
+  }
+  
+  .gaming-video {
+    height: auto;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .gaming-text {
+    height: auto;
+  }
+  
+  .video-container {
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  .achievement-title {
+    font-size: 1.5rem;
+  }
+  
+  .achievement-stats {
+    justify-content: center;
+  }
+  
+  .achievement-ranks {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  .faith-title {
+    font-size: 2rem;
+  }
+  
+  .faith-description {
+    font-size: 1.1rem;
+    text-align: center;
   }
 }

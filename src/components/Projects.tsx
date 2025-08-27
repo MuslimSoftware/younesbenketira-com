@@ -9,7 +9,7 @@ const AssetViewer = React.lazy(() => import('./projects/AssetViewer'))
 const Projects: React.FC = () => {
   return (
     <section id="projects" className="projects" aria-label="Portfolio projects">
-      {projectsData.map((project, index) => (
+      {projectsData.map((project) => (
         <article key={project.id} className="project-section" aria-labelledby={`project-${project.id}-title`}>
           <div className="project-content">
             <div className="project-header">

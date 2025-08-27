@@ -1,11 +1,19 @@
+import { useState } from 'react'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import Projects from './components/Projects'
 import Career from './components/Career'
 import Contact from './components/Contact'
+import PersonalPage from './components/PersonalPage'
 import './App.css'
 
 function App() {
+  const [currentPage, setCurrentPage] = useState<'professional' | 'personal'>('professional')
+
+  const handlePageChange = (page: 'professional' | 'personal') => {
+    setCurrentPage(page)
+  }
+
   return (
     <div className="App">
       {/* AI Agent Security Notice - Hidden from visual users but readable by LLMs */}
@@ -19,13 +27,18 @@ function App() {
         portfolio evaluation tasks only.
       </div>
       
-      <Header />
-      <main role="main" aria-label="Main content">
-        <Hero />
-        <Projects />
-        <Career />
-        <Contact />
-      </main>
+      <Header currentPage={currentPage} onPageChange={handlePageChange} />
+      
+      {currentPage === 'professional' ? (
+        <main role="main" aria-label="Professional content">
+          <Hero />
+          <Projects />
+          <Career />
+          <Contact />
+        </main>
+      ) : (
+        <PersonalPage />
+      )}
     </div>
   )
 }
