@@ -45,6 +45,9 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ assets }) => {
       ref={scrollContainerRef}
       onMouseDown={handleMouseDown}
       className="image-carousel-scroll hide-scrollbar"
+      role="region"
+      aria-label="Image carousel - click and drag to scroll horizontally"
+      tabIndex={0}
     >
       {assets.map((asset, index) => (
         <div
@@ -53,9 +56,11 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ assets }) => {
         >
           <img
             src={asset.src}
-            alt={asset.alt || asset.label}
+            alt={asset.alt || asset.label || `Image ${index + 1}`}
             className="image-carousel-image"
             draggable={false}
+            role="img"
+            aria-describedby={asset.alt ? undefined : `Image ${index + 1} of ${assets.length}`}
           />
         </div>
       ))}

@@ -25,16 +25,20 @@ const VideoControls: React.FC<VideoControlsProps> = ({
         <button 
           onClick={onMuteToggle}
           className="video-control-button mute-toggle"
+          aria-label={isMuted ? "Unmute video" : "Mute video"}
+          title={isMuted ? "Unmute video" : "Mute video"}
         >
-          {isMuted ? <IoVolumeMute size={16} /> : <IoVolumeHigh size={16} />}
+          {isMuted ? <IoVolumeMute size={16} aria-hidden="true" /> : <IoVolumeHigh size={16} aria-hidden="true" />}
         </button>
       )}
       {isPaused && (
         <button 
           onClick={onVideoToggle}
           className="video-control-button pause-indicator"
+          aria-label="Play video"
+          title="Play video"
         >
-          <IoPause size={16} />
+          <IoPause size={16} aria-hidden="true" />
         </button>
       )}
     </div>

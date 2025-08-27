@@ -87,32 +87,32 @@ export const projectsData: Project[] = [
       {
         src: '/images/gathera-1.png',
         label: "Trending",
-        alt: "Become Trending"
+        alt: "Gathera app trending screen showing popular social posts and events with engagement metrics"
       },
       {
         src: '/images/gathera-2.png',
         label: "Discover",
-        alt: "Discover Places"
+        alt: "Gathera app discover screen showing location-based social events and nearby activities"
       },
       {
         src: '/images/gathera-3.png',
-        label: "Overview",
-        alt: "Gathera Overview"
+        label: "Profile",
+        alt: "Gathera app user profile screen displaying personal information, followers, and social activity"
       },
       {
         src: '/images/gathera-4.png',
-        label: "Overview",
-        alt: "Gathera Overview"
+        label: "Feed",
+        alt: "Gathera app main feed displaying social media posts, photos, and user interactions"
       },
       {
         src: '/images/gathera-5.png',
-        label: "Overview",
-        alt: "Gathera Overview"
+        label: "Events",
+        alt: "Gathera app events screen showing local events, meetups, and social gatherings"
       },
       {
         src: '/images/gathera-6.png',
-        label: "Overview",
-        alt: "Gathera Overview"
+        label: "Chat",
+        alt: "Gathera app messaging interface showing conversations and social communication features"
       }
     ],
     links: [

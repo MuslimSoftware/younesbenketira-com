@@ -12,7 +12,10 @@ const HeroTitle: React.FC<HeroTitleProps> = ({
   className = '' 
 }) => {
   return (
-    <p className={`hero-title ${isAnimating ? 'fade-in-fast' : ''} ${className}`}>
+    <p 
+      className={`hero-title ${isAnimating ? 'fade-in-fast' : ''} ${className}`}
+      aria-label={`Professional title: ${title}`}
+    >
       {title}
     </p>
   )

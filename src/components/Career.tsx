@@ -5,7 +5,7 @@ import SectionTransition from './SectionTransition'
 
 const Career: React.FC = () => {
   return (
-    <section id="career" className="career">
+    <section id="career" className="career" aria-label="Professional experience and career">
       <SectionTransition text="Career" />
       {careerData.map((experience) => (
         <Job key={experience.id} experience={experience} />

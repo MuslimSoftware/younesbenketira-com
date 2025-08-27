@@ -11,7 +11,10 @@ const AnimatedName: React.FC<AnimatedNameProps> = ({
 }) => {
   return (
     <div className="hero-name-container">
-      <h1 className={`hero-name-responsive ${isAnimating ? 'fade-in' : ''}`}>
+      <h1 
+        className={`hero-name-responsive ${isAnimating ? 'fade-in' : ''}`}
+        aria-label={`${name}, AI Full Stack Engineer`}
+      >
         {name}
       </h1>
     </div>

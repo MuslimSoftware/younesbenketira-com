@@ -5,6 +5,19 @@
   box-sizing: border-box;
 }
 
+/* Accessibility - Screen reader only text */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 html {
   scroll-behavior: smooth;
   background-color: white;
@@ -674,6 +687,6 @@ body {
   
   /* Section transition mobile styles */
   .section-transition {
-    padding: 8rem 2rem 0 2rem;
+    padding: 12rem 2rem 0 2rem;
   }
 }

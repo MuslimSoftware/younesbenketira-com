@@ -8,23 +8,23 @@ const AssetViewer = React.lazy(() => import('./projects/AssetViewer'))
 
 const Projects: React.FC = () => {
   return (
-    <section id="projects" className="projects">
-      {projectsData.map((project) => (
-        <div key={project.id} className="project-section">
+    <section id="projects" className="projects" aria-label="Portfolio projects">
+      {projectsData.map((project, index) => (
+        <article key={project.id} className="project-section" aria-labelledby={`project-${project.id}-title`}>
           <div className="project-content">
             <div className="project-header">
-              <h2 className="project-title">{project.title}</h2>
-              <p className="project-description">{project.description}</p>
-              <div className="project-tags">
-                {project.tags.map((tag, index) => (
-                  <Tag key={index}>{tag}</Tag>
+              <h2 id={`project-${project.id}-title`} className="project-title">{project.title}</h2>
+              <p className="project-description" aria-describedby={`project-${project.id}-title`}>{project.description}</p>
+              <div className="project-tags" role="list" aria-label="Technologies used">
+                {project.tags.map((tag, tagIndex) => (
+                  <Tag key={tagIndex} role="listitem">{tag}</Tag>
                 ))}
               </div>
               {project.links && <ProjectLinks links={project.links} />}
             </div>
             <Suspense fallback={
               <div className="asset-viewer-container">
-                <div className="video-shell active">
+                <div className="video-shell active" aria-label="Loading project media">
                   <VideoSkeleton />
                 </div>
               </div>
@@ -32,7 +32,7 @@ const Projects: React.FC = () => {
               <AssetViewer project={project} />
             </Suspense>
           </div>
-        </div>
+        </article>
       ))}
     </section>
   )

@@ -24,16 +24,18 @@ const ProjectLinks: React.FC<ProjectLinksProps> = ({ links }) => {
   }
 
   return (
-    <div className="project-links">
+    <div className="project-links" role="list" aria-label="Project links">
       {links.map((link, index) => (
         <button
           key={index}
           className="project-link-button"
           onClick={() => handleLinkClick(link.url)}
           disabled={!link.url}
-          aria-label={`${link.type} link`}
+          aria-label={`View ${link.type === 'github' ? 'source code on GitHub' : 'live demo'}`}
+          title={`View ${link.type === 'github' ? 'source code on GitHub' : 'live demo'}`}
+          role="listitem"
         >
-          {getIcon(link.type)}
+          {React.cloneElement(getIcon(link.type), { 'aria-hidden': 'true' })}
         </button>
       ))}
     </div>

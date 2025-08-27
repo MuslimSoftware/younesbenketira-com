@@ -25,20 +25,20 @@ const Contact: React.FC = () => {
   }
 
   return (
-    <section id="contact" className="contact">
+    <section id="contact" className="contact" aria-label="Contact information and social media links">
       <div className="contact-content">
         <h2 className="contact-title">Let's Connect 🔥</h2>
-        <div className="socials-grid">
+        <div className="socials-grid" role="list" aria-label="Social media and contact options">
           {socialsData.map((social) => {
             const IconComponent = social.icon
             return (
-              <div key={social.id} className="social-card">
+              <div key={social.id} className="social-card" role="listitem">
                 <button
                   className="social-link"
                   onClick={() => handleSocialClick(social)}
                   aria-label={`Contact via ${social.name}`}
                 >
-                  <IconComponent className="social-icon" />
+                  <IconComponent className="social-icon" aria-hidden="true" />
                   <div className="social-info">
                     <span className="social-name">{social.name}</span>
                     <span className="social-handle">{social.handle}</span>
@@ -51,9 +51,9 @@ const Contact: React.FC = () => {
                   title="Copy to clipboard"
                 >
                   {copiedId === social.id ? (
-                    <MdCheck className="copy-icon" />
+                    <MdCheck className="copy-icon" aria-hidden="true" />
                   ) : (
-                    <MdContentCopy className="copy-icon" />
+                    <MdContentCopy className="copy-icon" aria-hidden="true" />
                   )}
                 </button>
               </div>

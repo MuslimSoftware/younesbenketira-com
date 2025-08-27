@@ -2,6 +2,7 @@ import React from 'react'
 
 interface TagProps {
   children: string
+  role?: string
 }
 
 const TAG_COLORS: Record<string, string> = {
@@ -12,7 +13,7 @@ const TAG_COLORS: Record<string, string> = {
   'node.js': '#10B981', // green
 }
 
-const Tag: React.FC<TagProps> = ({ children }) => {
+const Tag: React.FC<TagProps> = ({ children, role }) => {
   const color = TAG_COLORS[children.toLowerCase()] || '#6B7280' // gray as fallback
 
   return (
@@ -21,6 +22,8 @@ const Tag: React.FC<TagProps> = ({ children }) => {
       style={{
         backgroundColor: color
       }}
+      role={role}
+      aria-label={`Technology: ${children}`}
     >
       {children}
     </span>

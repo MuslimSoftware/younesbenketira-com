@@ -54,6 +54,20 @@ const ScrollIndicator: React.FC<ScrollIndicatorProps> = ({
         opacity: getOpacity(),
         transform: getTransform()
       }}
+      role="button"
+      tabIndex={0}
+      aria-label={`Scroll down to ${text} section`}
+      onClick={() => {
+        const element = document.getElementById(text.toLowerCase())
+        element?.scrollIntoView({ behavior: 'smooth' })
+      }}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault()
+          const element = document.getElementById(text.toLowerCase())
+          element?.scrollIntoView({ behavior: 'smooth' })
+        }
+      }}
     >
       <span className="scroll-text">{text}</span>
       <svg 
@@ -63,6 +77,9 @@ const ScrollIndicator: React.FC<ScrollIndicatorProps> = ({
         viewBox="0 0 24 24" 
         fill="none" 
         xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+        role="img"
+        aria-label="Down arrow"
       >
         <path 
           d="M6 9L12 15L18 9" 

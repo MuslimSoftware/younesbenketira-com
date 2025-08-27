@@ -7,7 +7,7 @@ const Hero: React.FC = () => {
   const isAnimating = useDelayedAnimation({ delay: 10 })
 
   return (
-    <section id="hero" className="hero">
+    <section id="hero" className="hero" aria-label="Introduction and hero section">
       <div className="hero-content">
         <AnimatedName 
           name="Younes Benketira" 

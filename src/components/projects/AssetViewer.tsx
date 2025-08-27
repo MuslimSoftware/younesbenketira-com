@@ -40,7 +40,7 @@ const AssetViewer: React.FC<AssetViewerProps> = ({ project }) => {
   if (project.assetType === 'image') {
     return (
       <div>
-        <div className="asset-viewer-image-container">
+        <div className="asset-viewer-image-container" role="img" aria-label={`${project.title} image gallery`}>
           <ImageCarousel assets={project.assets} />
         </div>
       </div>
@@ -58,6 +58,15 @@ const AssetViewer: React.FC<AssetViewerProps> = ({ project }) => {
                 key={asset.playbackId || index}
                 className={`video-shell ${index === currentIndex ? 'active' : 'hidden'} asset-viewer-video-clickable`}
                 onClick={handleVideoToggle}
+                role="button"
+                tabIndex={0}
+                aria-label={`Play/pause ${project.title} - ${asset.label} video`}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault()
+                    handleVideoToggle()
+                  }
+                }}
               >
                 <MuxPlayer
                   ref={(el) => {
@@ -73,6 +82,8 @@ const AssetViewer: React.FC<AssetViewerProps> = ({ project }) => {
                   playsInline
                   preload="metadata"
                   className="mux-no-ui"
+                  title={`${project.title} - ${asset.label}`}
+                  aria-label={`${project.title} ${asset.label} demonstration video`}
                 />
               </div>
             ))
@@ -93,12 +104,16 @@ const AssetViewer: React.FC<AssetViewerProps> = ({ project }) => {
         </div>
         
         {project.assets.length > 1 && (
-          <div className="video-pills">
+          <div className="video-pills" role="tablist" aria-label={`${project.title} video navigation`}>
             {project.assets.map((asset, index) => (
               <button
                 key={asset.playbackId || index}
                 onClick={() => handleVideoSwitch(index)}
                 className={`video-pill ${index === currentIndex ? 'active' : ''}`}
+                role="tab"
+                aria-selected={index === currentIndex}
+                aria-label={`Switch to ${asset.label} video`}
+                tabIndex={index === currentIndex ? 0 : -1}
               >
                 {asset.label}
               </button>
