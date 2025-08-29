@@ -1,11 +1,11 @@
+import { Link } from 'react-router-dom'
 import { useScrollVisibility } from '../hooks/useScrollVisibility'
 
 interface HeaderProps {
   currentPage: 'professional' | 'personal'
-  onPageChange: (page: 'professional' | 'personal') => void
 }
 
-const Header: React.FC<HeaderProps> = ({ currentPage, onPageChange }) => {
+const Header: React.FC<HeaderProps> = ({ currentPage }) => {
   const isVisible = useScrollVisibility({ threshold: 300 })
   const shouldShowHeader = currentPage === 'personal' || isVisible
 
@@ -14,30 +14,22 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onPageChange }) => {
       <nav className="nav" role="navigation" aria-label="Main navigation">
         <ul className="nav-links" role="list">
           <li role="listitem">
-            <a 
-              href="#professional"
-              onClick={(e) => {
-                e.preventDefault()
-                onPageChange('professional')
-              }}
+            <Link 
+              to="/"
               className={currentPage === 'professional' ? 'active' : ''}
               aria-label="Switch to Professional page"
             >
               Professional
-            </a>
+            </Link>
           </li>
           <li role="listitem">
-            <a 
-              href="#personal"
-              onClick={(e) => {
-                e.preventDefault()
-                onPageChange('personal')
-              }}
+            <Link 
+              to="/personal"
               className={currentPage === 'personal' ? 'active' : ''}
               aria-label="Switch to Personal page"
             >
               Personal
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>

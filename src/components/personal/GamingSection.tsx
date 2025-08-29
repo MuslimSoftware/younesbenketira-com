@@ -22,7 +22,7 @@ const GamingSection: React.FC = () => {
           <div className="gaming-video">
             <div className="video-container">
               <iframe
-                src="https://clips.twitch.tv/embed?clip=RespectfulWildCheesecakeTheThing-g9r3g5H4LHRKBkD4&parent=localhost&parent=younesbenketira.com"
+                src="https://clips.twitch.tv/embed?clip=RespectfulWildCheesecakeTheThing-g9r3g5H4LHRKBkD4&parent=localhost&parent=www.younesbenketira.com"
                 allowFullScreen
                 title="Winning clutch against Tarik"
                 className="twitch-embed"
@@ -48,7 +48,7 @@ const GamingSection: React.FC = () => {
           <div className="gaming-video">
             <div className="video-container">
               <iframe
-                src="https://clips.twitch.tv/embed?clip=AverageRelatedBulgogiHassaanChop-OwhJ4mKkPedwEfXn&parent=localhost&parent=younesbenketira.com"
+                src="https://clips.twitch.tv/embed?clip=AverageRelatedBulgogiHassaanChop-OwhJ4mKkPedwEfXn&parent=localhost&parent=www.younesbenketira.com"
                 allowFullScreen
                 title="Tournament winning round"
                 className="twitch-embed"
