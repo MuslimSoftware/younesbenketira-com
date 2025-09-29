@@ -11,7 +11,7 @@ interface ScrollIndicatorProps {
 
 const ScrollIndicator: React.FC<ScrollIndicatorProps> = ({ 
   text, 
-  delay = 3500,
+  delay = 1200,
   useScrollOpacity: shouldUseScrollOpacity = true,
   useViewportFade = false
 }) => {

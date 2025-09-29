@@ -1,5 +1,5 @@
 import { useDelayedAnimation } from '../hooks/useDelayedAnimation'
-import AnimatedName from './hero/AnimatedName'
+import HeroName from './hero/HeroName'
 import HeroTitle from './hero/HeroTitle'
 import ScrollIndicator from './hero/ScrollIndicator'
 
@@ -9,9 +9,8 @@ const Hero: React.FC = () => {
   return (
     <section id="hero" className="hero" aria-label="Introduction and hero section">
       <div className="hero-content">
-        <AnimatedName 
-          name="Younes Benketira" 
-          isAnimating={isAnimating}
+        <HeroName 
+          name="Younes Benketira"
         />
         <HeroTitle 
           title="AI Full Stack Engineer" 
