@@ -50,13 +50,4 @@ export const socialsData: Social[] = [
     icon: MdEmail,
     opensInNewTab: false
   },
-  {
-    id: 'phone',
-    name: 'Phone',
-    handle: '+1 438 927 9454',
-    copyText: '+14389279454',
-    url: 'tel:+14389279454',
-    icon: MdPhone,
-    opensInNewTab: false
-  }
 ]
