@@ -1,7 +1,7 @@
 import { IconType } from 'react-icons'
 import { RiTwitterXFill } from 'react-icons/ri'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
-import { MdEmail, MdPhone } from 'react-icons/md'
+import { MdEmail } from 'react-icons/md'
 
 export interface Social {
   id: string
