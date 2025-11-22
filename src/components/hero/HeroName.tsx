@@ -11,7 +11,7 @@ const HeroName: React.FC<HeroNameProps> = ({
     <div className="hero-name-container">
       <h1 
         className="hero-name-responsive"
-        aria-label={`${name}, AI Full Stack Engineer`}
+        aria-label={`${name}, Full Stack AI Engineer`}
       >
         {name}
       </h1>

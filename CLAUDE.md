@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a personal website for Younes Benketira, an AI Full Stack Engineer. The site is built with React, Vite, and TypeScript, featuring a clean, video-focused design with seamless project showcases.
+This is a personal website for Younes Benketira, a Full Stack AI Engineer. The site is built with React, Vite, and TypeScript, featuring a clean, video-focused design with seamless project showcases.
 
 ## Development Commands
 
@@ -63,7 +63,7 @@ The website follows a single-page layout with the following sections:
 1. **Header**: Clean, sticky navigation bar
 2. **Hero Section**: 
    - Large, stylized animated name display using SVG
-   - Job title "AI Full Stack Engineer" with delayed fade-in animation
+   - Job title "Full Stack AI Engineer" with delayed fade-in animation
    - Scroll indicator with bouncing chevron
 3. **Projects Section**: 
    - Responsive height sections for each project (70vh on mobile)

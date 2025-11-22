@@ -13,7 +13,7 @@ const Hero: React.FC = () => {
           name="Younes Benketira"
         />
         <HeroTitle 
-          title="AI Full Stack Engineer" 
+          title="Full Stack AI Engineer" 
           isAnimating={isAnimating}
         />
       </div>
